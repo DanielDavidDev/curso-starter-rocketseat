@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso Javascript - Modulo 2 - Exercicio 4</title>
+</head>
+<body>
+  <div class="app">
+
+  </div>
+  <script>
+    function adicionar() {
+      var inputValueElement = document.querySelector('input');
+      var liElement = document.createElement('li');
+      var textElement = document.createTextNode(inputElement.value);
+
+      liElement.appendChild(textElement);
+      ulElement.appendChild(liElement);
+    };
+
+    var containerElement = document.querySelector('.app');
+    var inputElement = document.createElement('input');
+    
+    var buttonElement = document.createElement('button');
+    var buttonTextElement = document.createTextNode('Adicionar');
+    buttonElement.appendChild(buttonTextElement);
+    buttonElement.setAttribute('onclick', 'adicionar()');
+
+    var ulElement = document.createElement('ul');
+
+    containerElement.appendChild(inputElement);
+    containerElement.appendChild(buttonElement);
+    containerElement.appendChild(ulElement);
+  </script>
+</body>
+</html>
