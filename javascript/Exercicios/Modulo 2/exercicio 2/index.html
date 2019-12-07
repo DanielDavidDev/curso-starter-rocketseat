@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso Javascript - Exercício 2</title>
+</head>
+<body>
+  <div id="app">
+
+  </div>
+
+  <script>
+    function adicionarBoxs() {
+      var boxElement = document.createElement('div');
+      boxElement.setAttribute('class', 'box');
+
+      boxElement.style.width = '100px';
+      boxElement.style.height = '100px';
+      boxElement.style.backgroundColor = '#f00';
+      
+      var id = Math.random();
+      
+      boxElement.setAttribute('id', `${id}`);
+      boxElement.setAttribute('onmouseover', `mudaCor(${id})`);
+      
+      
+      boxElement.style.backgroundColor = newColor;
+
+      containerElement.appendChild(boxElement);
+    }
+
+    function getRandomColor() {
+      var letters = "0123456789ABCDEF";
+      var color = "#";
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      
+      return color;
+    }
+
+    function mudaCor(id) {
+      var boxElement = document.querySelector(`#app div.box[id='${id}']`);
+      var mudaCor = getRandomColor();
+      boxElement.style.backgroundColor = mudaCor;
+    }
+
+    var containerElement = document.querySelector('#app');
+
+    var buttonElement = document.createElement('button');
+    var buttonTextElement = document.createTextNode('Adicionar');
+
+    var newColor = getRandomColor();
+
+    
+    buttonElement.setAttribute('onclick', 'adicionarBoxs()');
+
+    buttonElement.appendChild(buttonTextElement);
+    containerElement.appendChild(buttonElement);
+  </script>
+</body>
+</html>
