@@ -4,6 +4,10 @@ var inputElement = document.createElement('input');
 var ulElement = document.createElement('ul');
 ulElement.className = 'repoList';
 var listItem = document.createElement('li');
+listItem.textContent = 'Carregando...';
+var listError = document.createElement('li');
+listError.className = 'list-item';
+listError.textContent = 'Usuário não encontrado!';
 
 var btnElement = document.createElement('button');
 btnElement.innerHTML = 'adicionar';
@@ -24,6 +28,7 @@ btnElement.onclick = function() {
       })
       .catch(function(error) {
         ulElement.removeChild(listItem);
+        ulElement.appendChild(listError);
       });
   });
 };
